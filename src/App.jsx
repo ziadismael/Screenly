@@ -1,6 +1,7 @@
 import './App.css'
 import Search from './components/Search';
 import { useEffect, useState } from 'react';
+import { useDebounce } from 'react-use';
 import Spinner from './components/Spinner';
 import MovieCard from './components/MovieCard';
 
@@ -22,6 +23,9 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [movieList, setMovieList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+
+  useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm]);
   
   const fetchMovies = async (query = '') => {
     try{
@@ -58,9 +62,9 @@ const App = () => {
   }
 
   useEffect(() => {
-    fetchMovies(searchTerm);
+    fetchMovies(debouncedSearchTerm);
   }
-  ,[searchTerm])
+  ,[debouncedSearchTerm])
 
 
   return <main>
