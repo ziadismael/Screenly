@@ -1,4 +1,8 @@
 # 🎬 Screenly
+![React](https://img.shields.io/badge/React-v19.1-blue)
+![Vite](https://img.shields.io/badge/Vite-v7.1-rgb(207,159,255))
+![Tailwind](https://img.shields.io/badge/Tailwind-v4.3-9cf)
+![Node.Js](https://img.shields.io/badge/Node.js-v22.17-green)
 
 A modern, responsive movie discovery application built with React and powered by The Movie Database (TMDB) API. Discover trending movies and search through thousands of titles with an optimized, debounced search experience.
 
